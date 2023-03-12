@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminMapper">
+	
+	<!-- DTO 객체로 데이터를 받아올 경우 resultMap을 사용하고
+	int, String으로 데이터를 받아올 경우는 resultType을 쓴다 -->
+	<select id="selectNextItemCode" resultType="String">
+		SELECT 'ITEM_'||LPAD(NVL(MAX(TO_NUMBER(SUBSTR(ITEM_CODE, 6))), 0) + 1, 3, '0')
+		FROM SHOP_ITEM
+	</select>
+
+	<!-- 아이템 등록 -->
+	<insert id="regItem">
+		INSERT INTO SHOP_ITEM (
+			ITEM_CODE
+			, CATE_CODE
+			, ITEM_NAME
+			, ITEM_PRICE
+			, ITEM_INTRO
+		) VALUES (
+			#{itemCode}
+			, #{cateCode}
+			, #{itemName}
+			, #{itemPrice}
+			, #{itemIntro}
+		)
+	</insert>
+	
+	<!-- 이미지 등록(한번에 이미지 등록 쿼리문 여러번 실행X) -->
+	<insert id="regImg">
+		INSERT INTO ITEM_IMG (
+			IMG_CODE
+			, ORIGIN_FILE_NAME
+			, ATTACHED_FILE_NAME
+			, ITEM_CODE
+			, IS_MAIN
+		)
+		<!-- collection은 jsp에서 items와 같고, item은 var와 같다. -->
+		<!-- separator -> 중간 중간 구문자를 넣는다. 마지막에는 자동으로 사용을 하지않는다. -->
+		<!-- imgList -> img.getImgList(); -->
+		<foreach collection="imgList" item="img" separator="UNION ALL" index="i">
+		SELECT (SELECT 'IMG_'||LPAD(NVL(MAX(TO_NUMBER(SUBSTR(IMG_CODE, 5))), 0) + 1 + #{i}, 3, '0')
+		FROM ITEM_IMG)
+			, #{img.originFileName}
+			, #{img.attachedFileName}
+			, #{img.itemCode}
+			, #{img.isMain} 
+		FROM DUAL
+		</foreach>
+	</insert>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

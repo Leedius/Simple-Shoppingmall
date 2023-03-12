@@ -1,0 +1,19 @@
+@charset "UTF-8";
+.menu_div > div:nth-child(1){
+	text-align: right;
+}
+
+.menu_div > div:nth-child(2) {
+	text-align: center;
+	font-size: 4rem;
+}
+
+.menu_wrap{
+	text-align: center;
+}
+
+.menu_wrap > li{
+	display: inline-block;
+	width: 18%;
+	text-align: center;
+}

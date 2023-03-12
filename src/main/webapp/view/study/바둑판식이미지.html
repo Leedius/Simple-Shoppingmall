@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<style>
+    /* 이미지 박스 스타일 */
+    .image-box {
+        width: 200px;
+        height: 200px;
+        margin: 10px;
+        background-color: #eee;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    /* 이미지 박스 내부의 이미지 스타일 */
+    .image-box img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+    /* 바둑판식으로 정렬하기 위한 스타일 */
+    .image-list {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+
+<ul class="image-list">
+    <li class="image-box"><img src="image1.jpg" alt="이미지1"></li>
+    <li class="image-box"><img src="image2.jpg" alt="이미지2"></li>
+    <li class="image-box"><img src="image3.jpg" alt="이미지3"></li>
+    <li class="image-box"><img src="image4.jpg" alt="이미지4"></li>
+    <li class="image-box"><img src="image5.jpg" alt="이미지5"></li>
+    <li class="image-box"><img src="image6.jpg" alt="이미지6"></li>
+    <li class="image-box"><img src="image7.jpg" alt="이미지7"></li>
+    <li class="image-box"><img src="image8.jpg" alt="이미지8"></li>
+</ul>
+</body>
+</html>

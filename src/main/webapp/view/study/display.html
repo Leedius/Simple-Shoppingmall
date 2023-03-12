@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.wrap{
+	background-color: aqua;
+	padding: 10px;
+	text-align: center;
+}
+
+.wrap > div{
+	border: 1px solid black;
+	background-color: lime;
+	width: 20%;
+	/* inline, block, inline-block */
+	/* block : 해당 태그 옆에는 다른 태그 못 옴. 너비 조정 가능*/
+	/* inline : 
+		/* - 내용의 크기만큼만 영역으로 잡히기 때문에 옆에 다른 태그 올 수 있음 */
+		/* - 크기 조절 불가 */
+	/* inline-block */
+		/* - 해당 태그 옆에 다른 태그가 올 수 있음 */
+		/* - 크기 조절 가능 */
+	display: inline-block;
+}
+span{
+	background-color: purple;
+	width: 300px;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+	<div>div1<span>div1</span>div</div>
+	<div>div2</div>
+	<div>div3</div>
+	<div>div4</div>
+</div>
+</body>
+</html>
+
+<!-- list-style: none;: 리스트의 기본적인 마커(숫자, 점 등)를 제거합니다. -->
+<!-- display: flex;: 해당 요소를 Flex Container(플렉스 컨테이너)로 설정합니다. -->
+<!-- flex-wrap: wrap;: Flex Items(플렉스 아이템)이 한 줄에 모두 배치되지 않고, 여러 줄에 걸쳐서 배치되도록 합니다.
+justify-content: space-between;: Flex Items들 사이에 공간을 균등하게 분배하여, 첫 번째 Flex Item은 시작점에, 마지막 Flex Item은 끝점에 배치합니다. 
+중간에 있는 Flex Items들은 서로 동일한 간격으로 분배됩니다. -->
